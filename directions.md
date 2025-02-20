@@ -194,15 +194,15 @@ export default Home
 ```javascript
 'use client'
 
-import { useParams } from 'next/navigation';
+import { useParams } from "next/navigation";
 import { useState, useEffect } from 'react';
 import Layout from '../../../components/Layout'
 
 function Character() {
-  const router = useRouter();
-  const { id } = router.query;
   const [character, setCharacter] = useState(null);
   const [randomFact, setRandomFact] = useState(''); // New state for random fact
+  const params = useParams();
+  const id = params.id;
 
   useEffect(() => {
     if (id) {
